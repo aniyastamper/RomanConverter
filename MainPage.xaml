@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NewRoman.MainPage">
+
+    <ScrollView>
+        <StackLayout Padding="20,50,20,20"> <!--this is our apps front end the the xmal page is the backend code for buttons that is where we will populat ethe clicked change code we need -->
+            <Label Text="Insert Old Numeral Or Number" FontSize="Large" HorizontalOptions="Center"/>
+            
+                <Border Stroke="Black" StrokeThickness="1" Margin="20,20">
+                    <Entry x:Name="TxtRomanAndNumber" />
+                </Border>
+            
+            <Label x:Name="LblDisplay" HorizontalOptions="Center" Margin="0,60" FontSize="Large"/> <!--Display-->
+            
+            <Button Text="Calculate Number to Old Roman" Margin="0,10" FontSize="Small" Clicked="CalculateNR_OnClicked"/><!--Number to Roman-->
+            <Button Text="Calculate Old Roman to Number" Margin="0,20" FontSize="Small" Clicked="ButtonRN_OnClicked"/> <!--Roman to Number-->
+            <Button Text="Clear" FontSize="Large" Clicked="Clear_OnClicked"/><!--Clear-->
+            
+            
+        </StackLayout>
+    
+    </ScrollView>
+</ContentPage>
