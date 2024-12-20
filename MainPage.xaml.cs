@@ -2,46 +2,56 @@
 using NewRoman.Custom; 
 namespace NewRoman;
 
+
+
 public partial class MainPage : ContentPage
 {
+   public static Converter ConverterCalc; //? Why is it greyed out, Should it be public partial 
+   
    public MainPage()
    {
       InitializeComponent();
       Title = "Old Roman Calculator";
+      ConverterCalc = new Converter(); //Converter calc is able to be used in main page Cs file
    }
-
-  //Create new instance of the 2 varaibles and it will pull the Conversion ito the class 
-   
-
   
    
    private void ButtonRN_OnClicked(object sender, EventArgs e)
    {
-     
-      //Roman2Number - int 
-      var romanToNumberConverter = new Converter(); 
       
-      //Take our entry info and turn into var
-      var Roman = int.TryParse(TxtRomanAndNumber.Text, out int number);
-      
-      //take roman var start Roman to number conversion
-      romanToNumberConverter.RomanToNumber(TxtRomanAndNumber.Text);
-
-      //Display the Converted roman to a Number in label 
-     
+         //Roman2Number - int 
+         var RomanToNumber = new Converter();
+         
+            //take roman var start Roman to number conversion
+            LblDisplay.Text = RomanToNumber.RomanToNumber(TxtRomanToNumber.Text).ToString();
+            
 
    }
    
    private void CalculateNR_OnClicked(object sender, EventArgs e)
    {
-      //Number2roman - string 
-   
+      //NumberToRoman
+      
+      var NumberToRoman = new Converter(); 
+      
+      //Take our entry info and turn into var
+      var roman = int.TryParse(TxtNumberToRoman.Text, out int rnumber);
+      
+      //take roman var start Roman to number conversion
+      LblDisplay.Text = NumberToRoman.NumberToRoman(rnumber);
+      
+    //  if (!string.IsNullOrEmpty(NumberToRoman.ToString()))
+    //  {
+     //    LblDisplay.Text = " Enter Valid Number";
+    //  }
+      
    }
 
    private void Clear_OnClicked(object sender, EventArgs e)
    {
       LblDisplay.Text = "";
-      TxtRomanAndNumber.Text = "";
+      TxtRomanToNumber.Text = "";
+      TxtNumberToRoman.Text = "";
    }
 
 
